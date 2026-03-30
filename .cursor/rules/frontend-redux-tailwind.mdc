@@ -1,0 +1,13 @@
+---
+description: "Web frontend rules for Redux and Tailwind"
+alwaysApply: false
+globs: "apps/web-admin/src/**/*.{ts,tsx}"
+---
+
+# Web Frontend Rules
+
+- Use Redux Toolkit slices for cross-page state.
+- Keep server calls in async thunks/services, not in presentational components.
+- Use Tailwind utility classes only; do not introduce custom CSS files.
+- Keep dark/light theme toggling consistent via app-level state.
+- Build screens around domain flows: employee add, task assignment, progress updates, leave, finance.

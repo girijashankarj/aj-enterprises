@@ -1,0 +1,22 @@
+---
+description: "Backend API and Prisma conventions"
+alwaysApply: false
+globs: "apps/api/**/*.ts,apps/api/prisma/**/*"
+---
+
+# Backend + Prisma Rules
+
+## API
+- Keep modules separated by domain: `auth`, `employees`, `tasks`, `dashboard`, `finance`, `leave`.
+- Use a shared async handler pattern for route error handling.
+- Add request validation for every mutation endpoint.
+
+## Prisma
+- Update `schema.prisma` first, then generate client.
+- Prefer explicit enums for status-like fields.
+- Add indexes for frequent query dimensions (`employeeId`, date fields, status).
+- Keep migration names semantic and small.
+
+## Auth
+- Verify Google token server-side before issuing app JWT.
+- Keep role claims in JWT payload and re-check role on sensitive routes.

@@ -1,0 +1,23 @@
+---
+description: "Express route handlers, validation, and safe logging for apps/api"
+alwaysApply: false
+globs: "apps/api/src/**/*.ts"
+---
+
+# API route conventions
+
+## Boundaries
+- Treat **every** mutation as untrusted: validate body, params, and query with a schema (Zod roadmap) before Prisma.
+- **Never** log full `req.body`, `Authorization` headers, or tokens. Log correlation id + route + status + user id only.
+
+## Errors
+- Map domain errors to **4xx**; use a generic message for **500** (no stack traces to clients).
+- Keep error payload shape stable: `{ message: string, code?: string }` (extend with `details` for validation later).
+
+## Auth
+- Protected routes: require `Authorization: Bearer <jwt>`; attach `req.user` after verify.
+- Re-check **role** (`ADMIN` / `MANAGER` / `EMPLOYEE`) for sensitive actions even if JWT is valid.
+
+## Structure
+- Keep domain logic in **modules** (`auth`, `employees`, `tasks`, `dashboard`, `finance`, `leave`).
+- Use async wrappers that forward errors to a central error middleware.

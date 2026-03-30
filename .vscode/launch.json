@@ -1,0 +1,78 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Web: Admin (Vite)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}/apps/web-admin",
+      "console": "integratedTerminal",
+      "env": {
+        "VITE_USE_MOCK_API": "true",
+        "VITE_DEV_ROLE": "admin"
+      }
+    },
+    {
+      "name": "Web: Employee (Vite)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}/apps/web-admin",
+      "console": "integratedTerminal",
+      "env": {
+        "VITE_USE_MOCK_API": "true",
+        "VITE_DEV_ROLE": "employee"
+      }
+    },
+    {
+      "name": "Mobile: Admin (Expo)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start"],
+      "cwd": "${workspaceFolder}/apps/mobile",
+      "console": "integratedTerminal",
+      "env": {
+        "EXPO_PUBLIC_USE_MOCK_API": "true",
+        "EXPO_PUBLIC_INITIAL_ROLE": "ADMIN"
+      }
+    },
+    {
+      "name": "Mobile: Employee (Expo)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start"],
+      "cwd": "${workspaceFolder}/apps/mobile",
+      "console": "integratedTerminal",
+      "env": {
+        "EXPO_PUBLIC_USE_MOCK_API": "true",
+        "EXPO_PUBLIC_INITIAL_ROLE": "EMPLOYEE"
+      }
+    },
+    {
+      "name": "API (Express)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}/apps/api",
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "API + Web: Admin",
+      "configurations": ["API (Express)", "Web: Admin (Vite)"],
+      "stopAll": true
+    },
+    {
+      "name": "API + Web: Employee",
+      "configurations": ["API (Express)", "Web: Employee (Vite)"],
+      "stopAll": true
+    }
+  ]
+}

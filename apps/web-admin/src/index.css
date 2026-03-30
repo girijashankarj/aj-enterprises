@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Avoid accidental horizontal page scroll; tables/cards use their own overflow-x. */
+body {
+  overflow-x: clip;
+  background-color: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+  min-height: 100dvh;
+}
+
+html.dark body {
+  background-color: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+}
+
+::selection {
+  @apply bg-amber-200/80 text-slate-900;
+}
+
+html.dark ::selection {
+  @apply bg-amber-500/30 text-slate-50;
+}
+
+/* Aligned with docs/13-MICROSOFT-INSPIRED-UX-STANDARDS.md */
+:root {
+  --color-bg-canvas: #f5f7fa;
+  --color-bg-surface: #ffffff;
+  --color-bg-subtle: #eef2f7;
+  --color-text-primary: #1b1f24;
+  --color-text-secondary: #5b6472;
+  --color-border-default: #d6dce5;
+  --color-brand-primary: #0f6cbd;
+  --color-success: #107c10;
+  --color-warning: #c75c00;
+  --color-error: #c42b1c;
+  --color-info: #005a9e;
+}
+
+html.dark {
+  --color-bg-canvas: #0f1115;
+  --color-bg-surface: #171a21;
+  --color-bg-subtle: #1f2430;
+  --color-text-primary: #f3f5f8;
+  --color-text-secondary: #b4becc;
+  --color-border-default: #2e3543;
+  --color-brand-primary: #4aa3ff;
+  --color-success: #6ccb5f;
+  --color-warning: #f5a55a;
+  --color-error: #ff7a6e;
+  --color-info: #66b7ff;
+}
+
+/* Safe areas (notched phones, home indicator) — use with header/footer horizontal padding. */
+@layer utilities {
+  .safe-px {
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  }
+  .safe-pt {
+    padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+  }
+  .safe-pb {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Native text fields follow tokens (avoids system dark chrome fighting card surfaces). */
+@layer base {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+  textarea {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-default);
+  }
+}

@@ -1,0 +1,170 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  MANAGER
+  EMPLOYEE
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  BLOCKED
+  COMPLETED
+}
+
+enum LeaveStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum LedgerEntryType {
+  SALARY_CREDIT
+  ADVANCE
+  DEDUCTION
+  ADJUSTMENT
+}
+
+model User {
+  id              String            @id @default(cuid())
+  email           String            @unique
+  fullName        String
+  role            UserRole
+  googleId        String?
+  isActive        Boolean           @default(true)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  employeeProfile EmployeeProfile?
+  assignments     TaskAssignment[]
+  createdTasks    TaskAssignment[]  @relation("taskCreatedBy")
+  progressLogs    TaskProgressLog[]
+  suggestions     TaskSuggestion[]
+  ledgerEntries   SalaryLedger[]
+  leaveRequests   LeaveRequest[]
+}
+
+model EmployeeProfile {
+  id              String          @id @default(cuid())
+  userId          String          @unique
+  phone           String?
+  salaryBase      Decimal         @db.Decimal(12, 2)
+  leaveAllowance  Int             @default(24)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  user            User            @relation(fields: [userId], references: [id])
+  attendances     Attendance[]
+}
+
+model TaskTemplate {
+  id              String            @id @default(cuid())
+  partNumber      String
+  partName        String
+  defaultNotes    String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  assignments     TaskAssignment[]
+}
+
+model TaskAssignment {
+  id              String            @id @default(cuid())
+  taskTemplateId  String
+  employeeId      String
+  assignedById    String
+  assignmentDate  DateTime
+  targetCount     Int
+  achievedCount   Int               @default(0)
+  status          TaskStatus        @default(PENDING)
+  issueNotes      String?
+  managerNotes    String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  taskTemplate    TaskTemplate      @relation(fields: [taskTemplateId], references: [id])
+  employee        User              @relation(fields: [employeeId], references: [id])
+  assignedBy      User              @relation("taskCreatedBy", fields: [assignedById], references: [id])
+  progressLogs    TaskProgressLog[]
+  suggestions     TaskSuggestion[]
+}
+
+model TaskProgressLog {
+  id              String          @id @default(cuid())
+  taskAssignmentId String
+  employeeId      String
+  incrementCount  Int
+  currentCount    Int
+  issueNotes      String?
+  createdAt       DateTime        @default(now())
+  taskAssignment  TaskAssignment  @relation(fields: [taskAssignmentId], references: [id])
+  employee        User            @relation(fields: [employeeId], references: [id])
+}
+
+model TaskSuggestion {
+  id              String          @id @default(cuid())
+  taskAssignmentId String
+  suggestedById   String
+  comment         String
+  createdAt       DateTime        @default(now())
+  taskAssignment  TaskAssignment  @relation(fields: [taskAssignmentId], references: [id])
+  suggestedBy     User            @relation(fields: [suggestedById], references: [id])
+}
+
+model Attendance {
+  id                String          @id @default(cuid())
+  employeeProfileId String
+  attendanceDate    DateTime
+  isPresent         Boolean
+  notes             String?
+  createdAt         DateTime        @default(now())
+  employeeProfile   EmployeeProfile @relation(fields: [employeeProfileId], references: [id])
+
+  @@unique([employeeProfileId, attendanceDate])
+}
+
+model LeaveRequest {
+  id              String      @id @default(cuid())
+  employeeId      String
+  fromDate        DateTime
+  toDate          DateTime
+  totalDays       Int
+  reason          String?
+  status          LeaveStatus @default(PENDING)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  employee        User        @relation(fields: [employeeId], references: [id])
+}
+
+model SalaryLedger {
+  id              String          @id @default(cuid())
+  employeeId      String
+  entryType       LedgerEntryType
+  amount          Decimal         @db.Decimal(12, 2)
+  note            String?
+  entryDate       DateTime        @default(now())
+  createdAt       DateTime        @default(now())
+  employee        User            @relation(fields: [employeeId], references: [id])
+}
+
+/** Public marketing site — contact / RFQ inquiries (no auth). */
+model PublicLead {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  subject      String
+  message      String
+  pageUrl      String?
+  referrer     String?
+  utmSource    String?
+  utmMedium    String?
+  utmCampaign  String?
+  createdAt    DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([email])
+}

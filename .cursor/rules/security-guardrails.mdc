@@ -1,0 +1,13 @@
+---
+description: "Security baseline rules"
+alwaysApply: true
+---
+
+# Security Guardrails
+
+- Validate all external inputs at route boundaries.
+- Do not log full request bodies containing sensitive fields.
+- Return safe error messages to clients; avoid leaking stack internals.
+- Protect all non-public endpoints with auth middleware.
+- Use short-lived JWTs and server-side verification for Google tokens.
+- Parameterize queries and keep ORM usage typed.

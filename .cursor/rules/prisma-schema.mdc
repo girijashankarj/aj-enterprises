@@ -1,0 +1,21 @@
+---
+description: "Prisma schema and migration discipline for AJ Enterprises"
+alwaysApply: false
+globs: "apps/api/prisma/schema.prisma,apps/api/prisma/migrations/**/*"
+---
+
+# Prisma schema and migrations
+
+## Schema design
+- Use **enums** for `TaskStatus`, `LeaveStatus`, `UserRole`, `LedgerEntryType` and similar closed sets.
+- Money and salary amounts: **`Decimal`** with `@db.Decimal(12, 2)` (or appropriate precision), never `Float`.
+- Foreign keys: keep relation names explicit; prefer `onDelete` behaviour that matches product rules (often `Restrict` for financial rows).
+- Add **`@@index`** on high-cardinality filters: `employeeId`, `assignmentDate`, `status`, `entryDate` where queries list or filter.
+
+## Migrations
+- One logical change per migration when possible; name folders with timestamp + short description.
+- Never edit applied migration SQL in production; add a new migration to fix.
+- After schema edits: `prisma generate` and fix TypeScript compile errors before merge.
+
+## Domain naming
+- Align with docs: **task assignment**, **progress log**, **ledger entry**, **leave request** — use the same terms in `@@map` only if you introduce snake_case table names; Prisma models stay PascalCase.

@@ -1,0 +1,2 @@
+-- Create tables via Prisma migrate in real environments.
+-- Placeholder baseline migration for repository bootstrap.

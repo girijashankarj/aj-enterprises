@@ -1,0 +1,13 @@
+---
+description: "Keep implementation changes aligned with docs dependency rules"
+alwaysApply: false
+globs: "apps/api/**/*.{ts,prisma}"
+---
+
+# Documentation Alignment Rules
+
+- Follow dependency notes in `docs/05-DOCUMENT-ALIGNMENT-AND-REFERENCE.md`.
+- When API contracts or endpoint behavior changes, update `docs/10-API-CONTRACT-EXAMPLES.md`.
+- When route structure/modules change, review and update `docs/03-TECHNICAL-EXECUTION-BLUEPRINT.md`.
+- When Prisma schema/entities change, review and update `docs/04-ARCHITECTURE-AND-USER-FLOWS.md` and `docs/09-REPO-STRUCTURE.md`.
+- Keep RBAC references aligned with `ADMIN`, `MANAGER`, `EMPLOYEE` matrix in `docs/05`.

@@ -1,0 +1,23 @@
+---
+description: "Expo React Native — env, UX, and shared contracts"
+alwaysApply: false
+globs: "apps/mobile/**/*.{ts,tsx}"
+---
+
+# Expo mobile conventions
+
+## Environment
+- Only **`EXPO_PUBLIC_*`** variables are available in client bundles. Never put secrets in `EXPO_PUBLIC_*`.
+- **`EXPO_PUBLIC_USE_MOCK_API`** and **`EXPO_PUBLIC_INITIAL_ROLE`** are for dev/debug; document changes in `apps/mobile/.env.example`.
+
+## Product UX
+- Keep **role-based** flows explicit (employee vs admin/manager).
+- Prioritize **employee-first** flows: tasks, progress, issues, leave, salary snapshot.
+- Optimize for **workshop floor**: large tap targets, minimal steps, readable contrast.
+
+## Data and API
+- Prefer shared types from **`packages/shared-types`** and fixtures from **`@aj/mock-api`** for parity with web.
+- Future **token storage**: use `expo-secure-store` (or equivalent), not `AsyncStorage`, for JWT.
+
+## Offline (roadmap)
+- Queue progress updates with retry when API is integrated; avoid silent data loss.

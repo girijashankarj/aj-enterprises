@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+
+    <title>AJ Enterprises — Operations &amp; production platform</title>
+    <meta
+      name="description"
+      content="AJ Enterprises — workshop operations in Bhosari, Pune: production task planning, live progress, employees, salary ledger, and leave tracking."
+    />
+    <meta
+      name="keywords"
+      content="AJ Enterprises, Bhosari, Pune, manufacturing, shop floor, task planning, production tracking, payroll, leave management"
+    />
+    <meta name="author" content="AJ Enterprises" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/branding/ak-enterprises-banner.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AJ Enterprises" />
+    <meta property="og:title" content="AJ Enterprises — Operations &amp; production platform" />
+    <meta
+      property="og:description"
+      content="Production planning, live task progress, HR finance, and leave — Bhosari, Pune."
+    />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:image" content="/branding/ak-enterprises-banner.png" />
+    <meta property="og:image:alt" content="AJ Enterprises operations platform branding" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AJ Enterprises — Operations platform" />
+    <meta
+      name="twitter:description"
+      content="Manufacturing workshop operations: tasks, dashboard, finance, and leave."
+    />
+    <meta name="twitter:image" content="/branding/ak-enterprises-banner.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AJ Enterprises",
+        "description": "Manufacturing workshop operations platform — production tasks, progress visibility, employees, finance ledger, and leave.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bhosari",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "areaServed": { "@type": "City", "name": "Pune" }
+      }
+    </script>
+  </head>
+  <body class="min-h-screen antialiased">
+    <script>
+      try {
+        var k = "ak-theme";
+        var v = localStorage.getItem(k);
+        if (v === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.style.colorScheme = "dark";
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.style.colorScheme = "light";
+        }
+      } catch (_) {}
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+---
+description: "Redux Toolkit patterns for web-admin store"
+alwaysApply: false
+globs: "apps/web-admin/src/store/**/*.{ts,tsx}"
+---
+
+# Redux Toolkit (web-admin)
+
+## Slices
+- One slice per domain: `auth`, `theme`, `employees`, `tasks`, `dashboard`, `finance`, `leave`.
+- Prefer **RTK** `createSlice` with typed `PayloadAction`; avoid `any` in state.
+- Async work: use **`createAsyncThunk`** or a dedicated service module called from thunks — not raw `fetch` inside UI components.
+
+## Selectors
+- Use typed hooks (`useAppSelector`, `useAppDispatch`) from `store/hooks.ts`.
+- Derive UI values with memoized selectors when lists grow (future).
+
+## Mock vs live
+- When `VITE_USE_MOCK_API` is true, `preloadedState` may hydrate from `@aj/mock-api`. Adding live API: dispatch hydrate/replace actions after `fetchBootstrap` instead of duplicating logic in components.
+
+## Immutability
+- RTK + Immer allows "mutation" style in reducers; do not mutate shared references from outside the reducer.

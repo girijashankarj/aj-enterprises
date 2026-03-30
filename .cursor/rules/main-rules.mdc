@@ -1,0 +1,25 @@
+---
+description: "Core project rules for AJ Enterprises"
+alwaysApply: true
+---
+
+# Core Rules
+
+## Stack and Scope
+- Use TypeScript in all apps and packages.
+- Keep architecture aligned with monorepo structure: `apps/` and `packages/`.
+- Prefer shared contracts in `packages/shared-types`.
+
+## Engineering Discipline
+- Read existing code before edits and match current patterns.
+- Keep changes minimal and targeted.
+- Validate with typecheck/build after substantive edits.
+
+## Security and Secrets
+- Never hardcode credentials or tokens.
+- Use environment variables for all secrets and sensitive config.
+- Never commit `.env` files.
+
+## Data and Domain
+- Preserve domain naming consistency for AJ Enterprises: tasks, progress logs, leave, finance ledger.
+- Keep role checks explicit for `ADMIN`, `MANAGER`, `EMPLOYEE`.

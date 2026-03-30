@@ -1,0 +1,15 @@
+---
+description: "Microsoft-inspired UI standards for AJ web/mobile screens"
+alwaysApply: false
+globs: "apps/{web-admin,mobile}/**/*.{ts,tsx}"
+---
+
+# Microsoft-Inspired UI Rules
+
+- Follow `docs/13-MICROSOFT-INSPIRED-UX-STANDARDS.md` for all UI changes.
+- Keep enterprise visual tone: neutral surfaces, one primary brand accent, clear hierarchy.
+- Use consistent states for controls: rest, hover (web), pressed, focus-visible, disabled.
+- Enforce accessibility defaults: visible focus ring, WCAG-AA contrast, labels for icon-only controls.
+- Keep role-based UX explicit for `ADMIN`, `MANAGER`, `EMPLOYEE` without changing domain naming.
+- Prefer concise, action-oriented labels: "Assign Task", "Update Progress", "Approve Leave".
+- Ensure loading/empty/error/success states exist for changed screens and flows.
