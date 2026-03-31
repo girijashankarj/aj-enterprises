@@ -6,7 +6,7 @@ AJ Enterprises operates as a **pressure machine and latte machine workshop** in 
 
 This document is the **entry point** for business owners, tech reviewers, and developers. Deep dives live under [`docs/`](docs/00-INDEX.md).
 
-**Public GitHub:** [github.com/girijashankarj/aj-enterprises](https://github.com/girijashankarj/aj-enterprises)
+**Live web app (public):** [girijashankarj.github.io/aj-enterprises](https://girijashankarj.github.io/aj-enterprises/)
 
 ---
 
