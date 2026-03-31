@@ -20,11 +20,11 @@ export const SITE = {
   locale: "en_IN",
   /** Metal press / fabrication context — distinct stock imagery (Unsplash). */
   bannerPath:
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1280&q=82",
+    "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1280&q=82",
   /** Open-licensed stock (Unsplash License — https://unsplash.com/license). */
   heroPhoto: {
-    src: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1800&q=82",
-    alt: "Metal fabrication and welding in an industrial press and machine workshop",
+    src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=82",
+    alt: "Modern industrial machinery and fabrication workspace in operation",
     licenseUrl: "https://unsplash.com/license"
   },
   secondaryPhoto: {

@@ -119,13 +119,18 @@ export default function PublicLandingPage() {
           <div className="flex min-w-0 items-center justify-between gap-3 md:justify-start">
             <Link
               to="/"
-              className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]/40"
+              className="min-w-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]/40"
             >
-              <BrandLogo />
+              <div className="sm:hidden">
+                <BrandLogo compact />
+              </div>
+              <div className="hidden sm:block">
+                <BrandLogo />
+              </div>
             </Link>
             <div className="flex items-center gap-2 md:hidden">
               <HeaderControls />
-              <Link to="/login" className={cn(btnPrimary, "px-3")}>
+              <Link to="/login" className={cn(btnPrimary, "px-2.5 sm:px-3")}>
                 {t("landing.loginCta")}
               </Link>
             </div>

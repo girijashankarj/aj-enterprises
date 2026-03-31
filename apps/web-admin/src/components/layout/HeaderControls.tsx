@@ -8,7 +8,7 @@ import type { SupportedLanguage } from "../../store/slices/preferencesSlice";
 
 /** Matches secondary `Button` + toolbar row: same height, surface, border, shadow, radius. Chevron stack matches `Select` (surface instead of subtle). */
 const headerSelectClassName =
-  "h-11 w-[7.25rem] min-w-[7rem] shrink-0 appearance-none rounded-lg border border-[var(--color-border-default)] bg-[linear-gradient(45deg,transparent_50%,var(--color-text-secondary)_50%),linear-gradient(135deg,var(--color-text-secondary)_50%,transparent_50%),var(--color-bg-surface)] bg-[position:calc(100%-16px)_50%,calc(100%-11px)_50%,0_0] bg-[size:5px_5px,5px_5px,auto] bg-no-repeat px-3 py-0 pr-8 text-sm font-medium text-[var(--color-text-primary)] shadow-sm focus:border-[var(--color-brand-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/20";
+  "h-11 w-[6.25rem] min-w-[6rem] shrink-0 appearance-none rounded-lg border border-[var(--color-border-default)] bg-[linear-gradient(45deg,transparent_50%,var(--color-text-secondary)_50%),linear-gradient(135deg,var(--color-text-secondary)_50%,transparent_50%),var(--color-bg-surface)] bg-[position:calc(100%-16px)_50%,calc(100%-11px)_50%,0_0] bg-[size:5px_5px,5px_5px,auto] bg-no-repeat px-3 py-0 pr-8 text-sm font-medium text-[var(--color-text-primary)] shadow-sm focus:border-[var(--color-brand-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/20 sm:w-[7.25rem] sm:min-w-[7rem]";
 
 export function HeaderControls() {
   const { t } = useTranslation();
