@@ -23,7 +23,7 @@ export function SiteFooter() {
             </a>
             .
           </p>
-          <p>Brand banner: generated asset for {SITE.name}.</p>
+          <p>Brand and workshop imagery: licensed stock (see Unsplash link above).</p>
         </div>
       </div>
     </footer>

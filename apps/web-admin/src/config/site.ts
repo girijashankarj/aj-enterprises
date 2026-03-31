@@ -5,7 +5,7 @@ export const SITE = {
   shortName: "AJ",
   tagline: "Manufacturing operations platform",
   description:
-    "AJ Enterprises — workshop operations in Bhosari, Pune: production task planning, live progress, employees, salary ledger, and leave tracking in one place.",
+    "AJ Enterprises — metal press, lathe, and machine workshop operations in Bhosari (MIDC), Pune: production task planning, live progress, employees, salary ledger, and leave tracking in one place.",
   keywords: [
     "AJ Enterprises",
     "Bhosari",
@@ -19,16 +19,18 @@ export const SITE = {
   ].join(", "),
   locale: "en_IN",
   location: "Bhosari, Pune, India",
-  bannerPath: "/branding/ak-enterprises-banner.png",
+  /** Metal press / fabrication context — distinct stock imagery (Unsplash). */
+  bannerPath:
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1280&q=82",
   /** Open-licensed stock (Unsplash License — https://unsplash.com/license). */
   heroPhoto: {
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1800&q=82",
-    alt: "Technician using equipment in a precision manufacturing workshop",
+    src: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1800&q=82",
+    alt: "Metal fabrication and welding in an industrial press and machine workshop",
     licenseUrl: "https://unsplash.com/license"
   },
   secondaryPhoto: {
-    src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=82",
-    alt: "Industrial machinery and manufacturing floor context",
+    src: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=82",
+    alt: "Industrial workshop floor — MIDC-style metal and production environment",
     licenseUrl: "https://unsplash.com/license"
   }
 } as const;
