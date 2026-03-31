@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+export { AJ_SITE_BRANDING, type AjSiteBranding } from "./ajSiteBranding";
+
 export const userRoleSchema = z.enum(["ADMIN", "MANAGER", "EMPLOYEE"]);
 export type UserRole = z.infer<typeof userRoleSchema>;
 

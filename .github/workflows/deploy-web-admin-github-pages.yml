@@ -39,6 +39,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build shared-types (web-admin imports @aj/shared-types)
+        run: npm run build --workspace @aj/shared-types
+
       - name: Build web-admin
         env:
           # Project page: app is served under /<repository-name>/ (GH Pages URLs use lowercase)

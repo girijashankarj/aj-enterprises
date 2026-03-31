@@ -71,6 +71,8 @@ npm run dev:mobile
 | `VITE_API_BASE_URL` | API origin when mock off |
 | `VITE_DEV_ROLE` | `admin` / `employee` for UI preview |
 
+**PWA (installable web app).** `apps/web-admin` uses `vite-plugin-pwa`: a web manifest, precache service worker (`sw.js` + Workbox runtime), and `registerSW.js`. The GitHub Pages workflow sets `VITE_BASE_PATH` to `/<repo>/` so `scope`, `start_url`, and the service worker URL stay aligned with the deployed path. Install prompts require HTTPS (or `localhost` in dev). Workbox is built with `mode: "development"` so minification does not rely on a terser path that can fail on newer Node versions.
+
 ### Mobile — Expo (`EXPO_PUBLIC_`)
 
 | Variable | Description |

@@ -246,6 +246,7 @@ Details: [`.vscode/README.md`](.vscode/README.md).
 | `VITE_GOOGLE_SITE_VERIFICATION` | Optional Search Console HTML tag `content` value |
 | `VITE_DEV_ROLE` | `admin` or `employee` for UI preview |
 | `VITE_WORKSHOP_MAP_*` | Optional map URLs/coordinates for location page |
+| `VITE_BASE_PATH` | Usually unset locally (`/`). GitHub Pages project deploy sets `/<repo>/` in CI so the PWA manifest and service worker match the site URL (Chrome “Install app”). |
 
 ### Mobile (`apps/mobile` — see `.env.example`)
 

@@ -1,16 +1,16 @@
 /** Public site copy, SEO, and licensed imagery references (web-admin). */
 
+import { AJ_SITE_BRANDING } from "@aj/shared-types";
+
 export const SITE = {
-  name: "AJ Enterprises",
-  shortName: "AJ",
-  tagline: "Manufacturing operations platform",
-  description:
-    "AJ Enterprises — metal press, lathe, and machine workshop operations in Bhosari (MIDC), Pune: production task planning, live progress, employees, salary ledger, and leave tracking in one place.",
+  ...AJ_SITE_BRANDING,
   keywords: [
     "AJ Enterprises",
     "Bhosari",
+    "MIDC",
     "Pune",
     "manufacturing",
+    "metal press",
     "shop floor",
     "task planning",
     "production tracking",
@@ -18,7 +18,6 @@ export const SITE = {
     "leave management"
   ].join(", "),
   locale: "en_IN",
-  location: "Bhosari, Pune, India",
   /** Metal press / fabrication context — distinct stock imagery (Unsplash). */
   bannerPath:
     "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1280&q=82",
