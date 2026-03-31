@@ -6,13 +6,7 @@ AJ Enterprises operates as a **pressure machine and latte machine workshop** in 
 
 This document is the **entry point** for business owners, tech reviewers, and developers. Deep dives live under [`docs/`](docs/00-INDEX.md).
 
-## Related workshop repositories (GitHub)
-
-| Workshop | Public repository |
-|----------|-------------------|
-| **AJ Enterprises** (this repo) | [github.com/girijashankarj/aj-enterprises](https://github.com/girijashankarj/aj-enterprises) |
-| **SK Enterprises** | [github.com/girijashankarj/sk-enterprises](https://github.com/girijashankarj/sk-enterprises) |
-| **Mayur Enterprises (MAC)** | [github.com/girijashankarj/mayur-enterprises](https://github.com/girijashankarj/mayur-enterprises) |
+**Public GitHub:** [github.com/girijashankarj/aj-enterprises](https://github.com/girijashankarj/aj-enterprises)
 
 ---
 
