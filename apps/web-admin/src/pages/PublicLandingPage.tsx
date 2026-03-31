@@ -18,6 +18,7 @@ import { StandardHeader } from "../components/layout/StandardHeader";
 import { trackGenerateLead } from "../lib/analytics";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
+import { heroImageBaseUrl } from "../lib/heroImageBaseUrl";
 
 const btnPrimary =
   "inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-[var(--color-brand-primary)] px-5 py-0 text-sm font-medium text-white shadow-sm transition hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]/40";
@@ -26,8 +27,7 @@ const btnHeroSecondary =
 const btnHeroPrimary =
   "inline-flex min-h-11 items-center justify-center rounded-lg bg-[var(--color-brand-primary)] px-6 py-3 text-base font-medium text-white shadow-sm transition hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]/40";
 
-const HERO_IMG_BASE =
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop";
+const HERO_IMG_BASE = heroImageBaseUrl(SITE.heroPhoto.src);
 const heroSrcDefault = `${HERO_IMG_BASE}&w=1600&q=82`;
 const heroSrcSet = `${HERO_IMG_BASE}&w=640&q=80 640w, ${HERO_IMG_BASE}&w=1200&q=80 1200w, ${HERO_IMG_BASE}&w=1800&q=82 1800w`;
 
