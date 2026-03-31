@@ -8,6 +8,7 @@ import { Button } from "../components/ui/Button";
 import { useAppSelector } from "../store/hooks";
 import { downloadCsv } from "../utils/exportCsv";
 import { downloadPdfViaPrint } from "../utils/exportPdf";
+import { publicAsset } from "../utils/publicAsset";
 
 export default function DashboardPage() {
   const { t } = useTranslation();
@@ -68,7 +69,7 @@ export default function DashboardPage() {
           </div>
           <div className="flex flex-col justify-center gap-4 p-6 lg:p-8">
             <img
-              src={SITE.bannerPath}
+              src={publicAsset(SITE.bannerPath)}
               alt={`${SITE.name} brand banner`}
               width={640}
               height={360}

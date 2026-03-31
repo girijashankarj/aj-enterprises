@@ -1,4 +1,5 @@
 import { SITE } from "../config/site";
+import { publicAsset } from "../utils/publicAsset";
 
 type Props = { compact?: boolean };
 
@@ -6,7 +7,7 @@ export function BrandLogo({ compact }: Props) {
   return (
     <div className="flex items-center gap-3">
       <img
-        src="/branding/ak-mark.svg"
+        src={publicAsset("/branding/ak-mark.svg")}
         width={40}
         height={40}
         alt={`${SITE.name} mark`}

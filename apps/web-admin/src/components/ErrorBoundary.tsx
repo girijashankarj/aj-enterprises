@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { publicAsset } from "../utils/publicAsset";
 
 type Props = { children: ReactNode };
 
@@ -20,7 +21,13 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900 dark:from-slate-950 dark:to-slate-900 dark:text-slate-100">
           <div className="mx-auto flex max-w-lg flex-col gap-4 p-8">
-            <img src="/branding/ak-mark.svg" width={48} height={48} alt="" className="h-12 w-12" />
+            <img
+              src={publicAsset("/branding/ak-mark.svg")}
+              width={48}
+              height={48}
+              alt=""
+              className="h-12 w-12"
+            />
             <h1 className="text-xl font-semibold tracking-tight">Something went wrong</h1>
             <p className="text-slate-600 dark:text-slate-300">
               The app hit an unexpected error. Try reloading the page.
