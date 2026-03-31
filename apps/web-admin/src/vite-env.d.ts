@@ -12,9 +12,10 @@ interface ImportMetaEnv {
   readonly VITE_WORKSHOP_LONGITUDE?: string;
   readonly VITE_WORKSHOP_MAP_URL?: string;
   readonly VITE_WORKSHOP_MAP_EMBED_URL?: string;
-  /** Public landing: social links (optional) */
+  /** Public landing: social links (optional; defaults keep YouTube/Instagram/LinkedIn on the correct host) */
   readonly VITE_PUBLIC_YOUTUBE_URL?: string;
   readonly VITE_PUBLIC_INSTAGRAM_URL?: string;
+  readonly VITE_PUBLIC_LINKEDIN_URL?: string;
   readonly VITE_PUBLIC_X_URL?: string;
   readonly VITE_PUBLIC_CONTACT_EMAIL?: string;
   readonly VITE_PUBLIC_CONTACT_PHONE?: string;

@@ -31,6 +31,19 @@ export const PUBLIC_MARKETING = {
   clients: ["Whirlpool", "LG", "Voltas"] as const
 } as const;
 
+/** Fallbacks when env is unset (GitHub Pages). Each URL must stay on its own platform — override via repo Variables or `.env`. */
+export const DEFAULT_PUBLIC_SOCIAL = {
+  youtube: "https://www.youtube.com/",
+  instagram: "https://www.instagram.com/",
+  linkedin: "https://www.linkedin.com/"
+} as const;
+
+function envOr(v: string | undefined, fallback: string): string {
+  if (typeof v !== "string") return fallback;
+  const t = v.trim();
+  return t === "" ? fallback : t;
+}
+
 export function getPublicContact() {
   return {
     email: import.meta.env.VITE_PUBLIC_CONTACT_EMAIL ?? "contact@ajenterprises.in",
@@ -42,8 +55,9 @@ export function getPublicContact() {
 
 export function getSocialUrls() {
   return {
-    youtube: import.meta.env.VITE_PUBLIC_YOUTUBE_URL?.trim() ?? "",
-    instagram: import.meta.env.VITE_PUBLIC_INSTAGRAM_URL?.trim() ?? "",
+    youtube: envOr(import.meta.env.VITE_PUBLIC_YOUTUBE_URL, DEFAULT_PUBLIC_SOCIAL.youtube),
+    instagram: envOr(import.meta.env.VITE_PUBLIC_INSTAGRAM_URL, DEFAULT_PUBLIC_SOCIAL.instagram),
+    linkedin: envOr(import.meta.env.VITE_PUBLIC_LINKEDIN_URL, DEFAULT_PUBLIC_SOCIAL.linkedin),
     x: import.meta.env.VITE_PUBLIC_X_URL?.trim() ?? ""
   };
 }

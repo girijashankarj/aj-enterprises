@@ -12,12 +12,6 @@ name: Deploy web-admin to GitHub Pages
 on:
   push:
     branches: [main]
-    paths:
-      - "apps/web-admin/**"
-      - "packages/**"
-      - "package.json"
-      - "package-lock.json"
-      - ".github/workflows/deploy-web-admin-github-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -49,6 +43,10 @@ jobs:
         env:
           # Project page: app is served under /<repository-name>/ (GH Pages URLs use lowercase)
           REPO_NAME: ${{ github.event.repository.name }}
+          VITE_PUBLIC_YOUTUBE_URL: ${{ vars.VITE_PUBLIC_YOUTUBE_URL }}
+          VITE_PUBLIC_INSTAGRAM_URL: ${{ vars.VITE_PUBLIC_INSTAGRAM_URL }}
+          VITE_PUBLIC_LINKEDIN_URL: ${{ vars.VITE_PUBLIC_LINKEDIN_URL }}
+          VITE_PUBLIC_X_URL: ${{ vars.VITE_PUBLIC_X_URL }}
         run: |
           export VITE_BASE_PATH="/$(echo "$REPO_NAME" | tr '[:upper:]' '[:lower:]')/"
           npm run build --workspace web-admin

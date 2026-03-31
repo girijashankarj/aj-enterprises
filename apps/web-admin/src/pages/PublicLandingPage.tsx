@@ -19,6 +19,7 @@ import { trackGenerateLead } from "../lib/analytics";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { heroImageBaseUrl } from "../lib/heroImageBaseUrl";
+import { IconInstagram, IconLinkedin, IconYoutube } from "../components/SocialPlatformIcons";
 
 const btnPrimary =
   "inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-[var(--color-brand-primary)] px-5 py-0 text-sm font-medium text-white shadow-sm transition hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]/40";
@@ -33,6 +34,9 @@ const heroSrcSet = `${HERO_IMG_BASE}&w=640&q=80 640w, ${HERO_IMG_BASE}&w=1200&q=
 
 const inputClass =
   "w-full rounded-lg border border-[var(--color-border-default)] bg-[var(--color-bg-subtle)] px-3 py-2 text-sm text-[var(--color-text-primary)] shadow-sm placeholder:text-[var(--color-text-secondary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]/40";
+
+const socialIconLinkClass =
+  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[var(--color-border-default)] text-[var(--color-text-primary)] transition hover:bg-[var(--color-bg-subtle)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]/40";
 
 export default function PublicLandingPage() {
   const { t } = useTranslation();
@@ -379,15 +383,17 @@ export default function PublicLandingPage() {
           <div className="grid gap-10 lg:grid-cols-2">
             <Card className="space-y-4 border-[var(--color-border-default)] bg-[var(--color-bg-surface)] p-6">
               <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">{t("landing.connectTitle")}</h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 {social.youtube ? (
                   <a
                     href={social.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg border border-[var(--color-border-default)] px-4 py-2 text-sm font-medium text-[var(--color-text-primary)] transition hover:bg-[var(--color-bg-subtle)]"
+                    className={socialIconLinkClass}
+                    aria-label="YouTube"
+                    title="YouTube"
                   >
-                    YouTube
+                    <IconYoutube />
                   </a>
                 ) : null}
                 {social.instagram ? (
@@ -395,9 +401,23 @@ export default function PublicLandingPage() {
                     href={social.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg border border-[var(--color-border-default)] px-4 py-2 text-sm font-medium text-[var(--color-text-primary)] transition hover:bg-[var(--color-bg-subtle)]"
+                    className={socialIconLinkClass}
+                    aria-label="Instagram"
+                    title="Instagram"
                   >
-                    Instagram
+                    <IconInstagram />
+                  </a>
+                ) : null}
+                {social.linkedin ? (
+                  <a
+                    href={social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={socialIconLinkClass}
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
+                    <IconLinkedin />
                   </a>
                 ) : null}
                 {social.x ? (
@@ -405,12 +425,14 @@ export default function PublicLandingPage() {
                     href={social.x}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg border border-[var(--color-border-default)] px-4 py-2 text-sm font-medium text-[var(--color-text-primary)] transition hover:bg-[var(--color-bg-subtle)]"
+                    className={`${socialIconLinkClass} text-sm font-bold leading-none`}
+                    aria-label="X"
+                    title="X"
                   >
-                    X
+                    <span aria-hidden>X</span>
                   </a>
                 ) : null}
-                {!social.youtube && !social.instagram && !social.x ? (
+                {!social.youtube && !social.instagram && !social.linkedin && !social.x ? (
                   <p className="text-sm text-[var(--color-text-secondary)]">{t("landing.socialPlaceholderShort")}</p>
                 ) : null}
               </div>
